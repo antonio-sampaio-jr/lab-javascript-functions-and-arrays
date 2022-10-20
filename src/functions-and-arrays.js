@@ -1,19 +1,60 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(numero1, numero2) 
+{
+    if (numero1 > numero2)
+       return numero1;
+    else
+       return numero2;    
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
+function findLongestWord(words) 
+{
+  if (words.length  ===  0)
+      return null;
+  else if (words.length  ===  1)
+      return words[0];
+  else
+  {
+    let indice = 0;
+    for(let i=0; i<words.length; i++)
+    {
+        if (words[i].length > words[indice].length)
+                indice = i;
+    }            
+    return(words[indice]);  
+  }  
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) 
+{
+  if (numbers.length  ===  0)
+      return 0;
+  else if (numbers.length  ===  1)
+      return numbers[0];
+  else
+  {  
+    let sum = 0;
+    let tudozero = false;
+    for(let i=0; i < numbers.length; i++)
+    {
+        if(numbers[i] === 0)
+           tudozero = true;
+        sum += numbers[i];
+    }
+    if (tudozero)
+        return 0;
+    else    
+        return sum;    
+  }
+}
 
 
 
@@ -26,14 +67,46 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) 
+{
+   if (numbersAvg.length  ===  0)
+      return null;
+   else if (numbersAvg.length  ===  1)
+      return numbersAvg[0];
+   else
+   {  
+    let sum =0;
+    let i =0;
+    for(i=0; i<numbersAvg.length; i++)
+    {
+      sum+= numbersAvg[i];
+    }
+    return sum/i;  
+  } 
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+/*
+should return the average of a the array
+*/
 
-function averageWordLength() { }
-
+function averageWordLength(wordsArr) 
+{ 
+  if (wordsArr.length  ===  0)
+      return null;
+  else if (wordsArr.length  ===  1)
+      return (wordsArr[0].length);
+  else
+  {  
+      let sum =0;
+      let i =0;
+      for(i=0; i<wordsArr.length; i++)
+        sum+= wordsArr[i].length;
+      return (sum/i);  
+  }
+}
 // Bonus - Iteration #4.1
 function avg() {}
 
@@ -52,14 +125,56 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+/*
+should return the same array when no element is repeated
+should return the uniquified array
+*/
 
+function uniquifyArray(wordsUnique) 
+{
+  let novoarray=[];
+  if (wordsUnique.length  ===  0)
+      return null;
+  else if (wordsUnique.length  ===  1)
+      return wordsUnique;
+  else
+  {
+      let word;
+      for(let i=0; i<wordsUnique.length; i++)
+      {
+        word = wordsUnique[i];
+        if(!novoarray.includes(word))
+           novoarray.push(word);
+      }
+      if (novoarray.length === 0)
+        return wordsUnique;
+      return novoarray;   
+  }    
+}
 
-
+//should return true if the word we are looking for is in the array
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind,word) 
+{
+  let unico = 0;
+  if (wordsFind.length  ===  0)
+      return null;
+  else if (wordsFind.length  ===  1)
+      return true;
+  else
+  {
+    for(let i=0; i<wordsFind.length;i++)
+    {
+        if (wordsFind[i].includes(word))
+            unico++; 
+    }
+    if (unico === 0)
+       return false;
+    return true;
+  }
+}  
 
 
 
@@ -78,8 +193,30 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+//should return 1 (one) when the word appears only one time in the array
+//should return 0 (zero) when the word doesn't appear in the array
+//should return 5 (five) when the word appears 5 times in the array
 
+function howManyTimes(wordsCount,word) 
+{
+    let count = 0;
+    if (wordsCount.length  ===  0)
+      return 0;
+    else
+    { 
+      for(let i=0; i<wordsCount.length;i++)
+      {
+          if (wordsCount[i].includes(word))
+              count++; 
+      }
+      if (count === 0)
+         return 0;
+      else if (count === 1)
+         return 1;
+      else if (count === 5)
+         return 5;   
+    }
+  }
 
 
 // Iteration #8: Bonus
